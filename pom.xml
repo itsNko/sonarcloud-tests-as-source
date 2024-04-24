@@ -17,6 +17,9 @@
         <sonar.inclusions>
             src/test/java
         </sonar.inclusions>
+        <sonar.test.exclusions>
+            src/test/java
+        </sonar.test.exclusions>
     </properties>
 
     <dependencies>
