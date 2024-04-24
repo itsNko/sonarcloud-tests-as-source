@@ -14,10 +14,6 @@
         <sonar.organization>itsnko</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.projectKey>sonarcloud-tests-as-source</sonar.projectKey>
-        <sonar.inclusions>
-            src,
-            src/test/java/*
-        </sonar.inclusions>
     </properties>
 
     <dependencies>
@@ -51,6 +47,19 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- Configure SonarCloud plugin -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.11.0.3922</version> <!-- Adjust version if needed -->
+                <configuration>
+                    <!-- Define additional source directories -->
+                    <sources>
+                        <source>src/main/java</source>
+                        <source>src/test/java</source> <!-- Include test sources -->
+                    </sources>
+                </configuration>
             </plugin>
         </plugins>
     </build>
