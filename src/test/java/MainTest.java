@@ -5,7 +5,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class MainTest {
-    public static int number;
+    public static int number, a;
     int number2;
     public String potato;
     public List<Integer> list;
