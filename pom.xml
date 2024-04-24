@@ -15,11 +15,9 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.projectKey>sonarcloud-tests-as-source</sonar.projectKey>
         <sonar.inclusions>
-            src/test/java
+            src,
+            src/test/java/*
         </sonar.inclusions>
-        <sonar.test.exclusions>
-            src/test/java
-        </sonar.test.exclusions>
     </properties>
 
     <dependencies>
