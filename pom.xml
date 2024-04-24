@@ -13,11 +13,12 @@
         <maven.compiler.target>17</maven.compiler.target>
         <sonar.organization>itsnko</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.projectKey>itsNko_sonarcloud-tests-as-source</sonar.projectKey>
         <sonar.inclusions>
             src/test/java
         </sonar.inclusions>
     </properties>
-    
+
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
