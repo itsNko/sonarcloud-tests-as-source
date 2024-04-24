@@ -81,6 +81,26 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.11.0.3922</version> <!-- Adjust version if needed -->
+                <executions>
+                    <execution>
+                        <id>sonar</id>
+                        <phase>verify</phase> <!-- Adjust phase if needed -->
+                        <goals>
+                            <goal>sonar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Exclude test files from analysis -->
+                    <exclusions>
+                        <exclusion>**/src/test/java/**</exclusion>
+                    </exclusions>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
