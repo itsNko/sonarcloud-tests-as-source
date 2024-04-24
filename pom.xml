@@ -48,18 +48,38 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- Configure SonarCloud plugin -->
+
+            <!-- Exclude test sources from the test scope -->
             <plugin>
-                <groupId>org.sonarsource.scanner.maven</groupId>
-                <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.11.0.3922</version> <!-- Adjust version if needed -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version> <!-- Adjust version if needed -->
                 <configuration>
-                    <!-- Define additional source directories -->
-                    <sources>
-                        <source>src/main/java</source>
-                        <source>src/test/java</source> <!-- Include test sources -->
-                    </sources>
+                    <testExclude>
+                        <exclude>**/src/test/java/**</exclude>
+                    </testExclude>
                 </configuration>
+            </plugin>
+
+            <!-- Include test sources in the main source scope -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>3.0.0</version> <!-- Adjust version if needed -->
+                <executions>
+                    <execution>
+                        <id>add-test-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-test-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/test/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
